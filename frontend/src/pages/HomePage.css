@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background-color: #1d1f20;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+#pageContainer {
+  background-color: #404547;
+  border-radius: 1rem;
+  display: flex;
+  height: 90vh;
+  overflow: hidden;
+  width: 90vw;
+}
+
+#chatsList {
+  background-color: #61696d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 25rem;
+}
+
+#chatView {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
