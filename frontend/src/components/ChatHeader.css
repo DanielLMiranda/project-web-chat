@@ -1,0 +1,9 @@
+#chatHeaderContainer {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  width: 100%;
+  border-left: 1px solid grey;
+}
