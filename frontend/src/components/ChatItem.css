@@ -1,0 +1,36 @@
+#chatItemContainer {
+  background-color: grey;
+  height: 5rem;
+  max-height: 5rem;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 1;
+  border-radius: 1rem;
+  align-items: center;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
+#profilePicture {
+  justify-self: center;
+}
+
+#name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+#lastMessageTimestamp {
+  grid-column: 3;
+  justify-self: center;
+}
+
+#lastMessage {
+  grid-column: 2;
+  font-size: 0.8rem;
+}
+
+#nameAndLastMessageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
