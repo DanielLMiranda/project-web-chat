@@ -16,17 +16,18 @@ body {
   background-color: #404547;
   border-radius: 1rem;
   display: flex;
-  height: 90vh;
+  height: 95vh;
   overflow: hidden;
-  width: 90vw;
+  width: 100vw;
+  max-width: 1300px;
 }
 
 #chatsList {
   background-color: #61696d;
   color: white;
   display: flex;
-  justify-content: center;
-  width: 25rem;
+  flex-direction: column;
+  width: 45rem;
 }
 
 #chatView {

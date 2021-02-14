@@ -1,18 +1,32 @@
 import React from 'react';
+import socket from '../socket';
 import ChatInput from '../components/ChatInput';
+import MainHeader from '../components/MainHeader';
+import ChatHeader from '../components/ChatHeader';
+import ChatsList from '../components/ChatsList';
 import './HomePage.css';
 
-const HomePage = () => (
-  <div id="pageContainer">
-    <section id="chatsList">
-      <p>Header 1</p>
-    </section>
-    <section id="chatView">
-      <div>Header 2</div>
-      <div>Chat View</div>
-      <ChatInput />
-    </section>
-  </div>
-);
+const username = 'Daniel';
+
+const HomePage = () => {
+  React.useEffect(() => {
+    socket.auth = { username };
+    socket.connect();
+  }, []);
+
+  return (
+    <div id="pageContainer">
+      <section id="chatsList">
+        <MainHeader />
+        <ChatsList />
+      </section>
+      <section id="chatView">
+        <ChatHeader />
+        <div>Chat View</div>
+        <ChatInput />
+      </section>
+    </div>
+  );
+};
 
 export default HomePage;
