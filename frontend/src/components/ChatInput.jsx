@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import io from 'socket.io-client';
 import './ChatInput.css';
 import { ReactComponent as SendIcon } from '../send-icon.svg';
 
-const ChatInput = () => {
-  const [input, setInput] = React.useState('');
+const socket = io('http://localhost:3001');
 
-  const handleSubmit = () => {
-    console.log('Ok');
+const ChatInput = () => {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (input) {
+      socket.emit('message', input);
+      setInput('');
+    }
   };
 
   return (
     <div id="chatInputContainer">
-      <form onSubmit={handleSubmit()}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={input}
