@@ -9,6 +9,6 @@ module.exports = {
     ecmaVersion: 12,
   },
   rules: {
-    'no-param-reassign': false,
+    'no-param-reassign': 0,
   },
 };
