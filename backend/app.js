@@ -14,13 +14,13 @@ const io = socketio(server, { cors: { origin: 'http://localhost:3000' } });
 
 // const users = [];
 
-io.use((socket, next) => {
-  const username = socket.handshake.auth.username;
-  if (!username) {
-    return next(new Error('invalid username'));
-  }
-  socket.username = username;
-  next();
-});
+// io.use((socket, next) => {
+//   const username = socket.handshake.auth.username;
+//   if (!username) {
+//     return next(new Error('invalid username'));
+//   }
+//   socket.username = username;
+//   next();
+// });
 
 module.exports = { io, server };

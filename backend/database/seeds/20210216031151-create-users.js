@@ -15,6 +15,12 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          userName: 'Test 3',
+          phone: '+55 (11)99999997',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {},
     );
