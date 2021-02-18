@@ -4,7 +4,7 @@ import ChatInput from '../components/ChatInput';
 import MainHeader from '../components/MainHeader';
 import ChatHeader from '../components/ChatHeader';
 import ChatsList from '../components/ChatsList';
-import './HomePage.css';
+import styles from './HomePage.module.css';
 
 const username = 'Daniel';
 
@@ -15,12 +15,12 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div id="pageContainer">
-      <section id="chatsList">
+    <div id={styles.pageContainer}>
+      <section id={styles.chatsList}>
         <MainHeader />
         <ChatsList />
       </section>
-      <section id="chatView">
+      <section id={styles.chatView}>
         <ChatHeader />
         <div>Chat View</div>
         <ChatInput />

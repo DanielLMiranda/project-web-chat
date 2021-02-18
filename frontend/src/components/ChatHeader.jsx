@@ -1,6 +1,6 @@
 import React from 'react';
-import './ChatHeader.css';
+import styles from './ChatHeader.module.css';
 
-const ChatHeader = () => <div id="chatHeaderContainer">Chat Header</div>;
+const ChatHeader = () => <div id={styles.chatHeaderContainer}>Chat Header</div>;
 
 export default ChatHeader;

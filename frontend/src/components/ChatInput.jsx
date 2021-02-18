@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import io from 'socket.io-client';
-import './ChatInput.css';
 import { ReactComponent as SendIcon } from '../send-icon.svg';
+import styles from './ChatInput.module.css';
 
 const socket = io('http://localhost:3001');
 
@@ -17,7 +17,7 @@ const ChatInput = () => {
   };
 
   return (
-    <div id="chatInputContainer">
+    <div id={styles.chatInputContainer}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -26,7 +26,7 @@ const ChatInput = () => {
           autoComplete="off"
           placeholder="Type a message"
         />
-        <button type="submit" id="sendButton">
+        <button type="submit" id={styles.sendButton}>
           <SendIcon />
         </button>
       </form>
