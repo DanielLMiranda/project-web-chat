@@ -1,16 +1,19 @@
+const bcrypt = require('bcryptjs');
+
 const createUsers = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
     userId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     userName: DataTypes.STRING,
     phone: DataTypes.STRING,
+    password: DataTypes.VIRTUAL,
+    passwordHash: DataTypes.STRING,
   });
 
-  // Users.associate = (models) => {
-  //   Users.hasMany(models.UserContacts, {
-  //     foreignKey: 'userId',
-  //     as: 'contacts',
-  //   });
-  // };
+  Users.addHook('beforeSave', async (user) => {
+    if (user.password) {
+      user.passwordHash = await bcrypt.hash(user.password, 8);
+    }
+  });
 
   return Users;
 };
