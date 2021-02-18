@@ -9,11 +9,11 @@ function App() {
     <ChatProvider>
       <Router>
         <Switch>
-          <Route path="/">
-            <LoginPage />
-          </Route>
           <Route path="/home">
             <HomePage />
+          </Route>
+          <Route path="/">
+            <LoginPage />
           </Route>
         </Switch>
       </Router>
