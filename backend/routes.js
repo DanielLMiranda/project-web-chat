@@ -6,10 +6,11 @@ const authMiddleware = require('./middlewares/auth');
 // Users
 router.post('/users', Controllers.Users.createUser);
 
-router.use(authMiddleware);
-
 // Session
 router.post('/sessions', Controllers.Session.createSession);
+
+// Authorized routes
+router.use(authMiddleware);
 
 // Users
 router.get('/users', Controllers.Users.findUsers);
