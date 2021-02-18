@@ -6,9 +6,22 @@ const findUsers = async (_req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const { userName, phone, passwordHash } = req.body;
-  const createdUser = await Users.create({ userName, phone, passwordHash });
-  return res.status(201).json(createdUser);
+  const { userName, phone, password } = req.body;
+  const userExist = await Users.findOne({ where: { phone } });
+  if (userExist) {
+    return res
+      .status(400)
+      .json({ message: 'User with this phone number already exists' });
+  }
+  await Users.create({ userName, phone, password });
+  return res.status(201).json({ message: 'User created successfully' });
 };
 
-module.exports = { findUsers, createUser };
+const updateUser = async (req, res) =>
+  res.json({
+    ok: true,
+    test: req.userId,
+    test2: process.env.POSTGRES_DATABASE,
+  });
+
+module.exports = { findUsers, createUser, updateUser };
