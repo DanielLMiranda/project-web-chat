@@ -10,5 +10,7 @@ module.exports = {
   },
   rules: {
     'no-param-reassign': 0,
+    'implicit-arrow-linebreak': 'below',
+    'no-confusing-arrow': 0,
   },
 };
