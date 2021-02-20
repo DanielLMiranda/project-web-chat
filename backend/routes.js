@@ -17,7 +17,7 @@ router.get('/users', Controllers.Users.findUsers);
 router.put('/users', Controllers.Users.updateUser);
 
 // Contacts
-router.get('/users/:userId/contacts', Controllers.UserContacts.findContacts);
-router.post('/users/:userId/contacts', Controllers.UserContacts.createContact);
+router.get('/users/contacts', Controllers.UserContacts.findContacts);
+router.post('/users/contacts', Controllers.UserContacts.createContact);
 
 module.exports = router;
