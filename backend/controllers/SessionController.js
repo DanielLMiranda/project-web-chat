@@ -1,17 +1,25 @@
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const yup = require('yup');
 const { Users } = require('../models');
 
-const createSession = async (req, res) => {
+exports.createSession = async (req, res) => {
   const { phone, password } = req.body;
+  const schema = yup.object().shape({
+    phone: yup.string().required(),
+    password: yup.string().required(),
+  });
+
+  if (!(await schema.isValid(req.body))) {
+    return res.status(400).json({ message: 'Invalid input' });
+  }
+
   const user = await Users.findOne({ where: { phone } });
 
   if (!user) {
     return res.status(404).json({ message: 'User not found' });
   }
 
-  const passwordIsValid = await bcrypt.compare(password, user.passwordHash);
-  if (!passwordIsValid) {
+  if (!(await user.checkPassword(password))) {
     return res.status(401).json({ message: 'Invalid password' });
   }
 
@@ -28,5 +36,3 @@ const createSession = async (req, res) => {
     }),
   });
 };
-
-module.exports = { createSession };
