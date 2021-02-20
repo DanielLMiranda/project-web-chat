@@ -4,13 +4,6 @@ const createUserContacts = (sequelize, DataTypes) => {
     contactId: { type: DataTypes.INTEGER, primaryKey: true },
   });
 
-  // UserContacts.associate = (models) => {
-  //   UserContacts.belongsTo(models.Users, {
-  //     foreignKey: 'userId',
-  //     as: 'contacts',
-  //   });
-  // };
-
   UserContacts.associate = (models) => {
     models.Users.belongsToMany(models.Users, {
       as: 'users',
